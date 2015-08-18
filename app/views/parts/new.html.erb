@@ -1,2 +1,29 @@
-<h1>Parts#new</h1>
-<p>Find me in app/views/parts/new.html.erb</p>
+<%= link_to("<<Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="parts new">
+	<h2>Create Part</h2>
+
+	<%= form_for(:part, :url => {:action => 'create'}) do |f| %>
+
+	<table summary="part form fields">
+		<tr>
+			<th>Nombre</th>
+			<td><%= f.text_field(:Nombre) %></td>
+		</tr>
+		<tr>
+			<th>Stock</th>
+			<td><%= f.text_field(:Cantidad) %></td>
+		</tr>
+		<tr>
+			<th>Car_id</th>
+			<td><%= f.text_field(:Car_id) %></td>
+		</tr>
+	</table>
+
+	<div class="form-buttons">
+		<%= submit_tag("Create Part") %>
+	</div>
+	
+	<% end %>
+
+</div>
