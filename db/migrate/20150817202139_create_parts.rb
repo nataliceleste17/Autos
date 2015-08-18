@@ -1,10 +1,14 @@
 class CreateParts < ActiveRecord::Migration
-  def change
+  def up
     create_table :parts do |t|
-    	t.references :id_auto
     	t.string "Nombre"
     	t.integer "Cantidad"
       t.timestamps null: false
     end
   end
+
+  def down
+  	drop_table :parts 
+  end
+
 end
