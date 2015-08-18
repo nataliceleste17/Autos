@@ -1,2 +1,27 @@
-<h1>Cars#index</h1>
-<p>Find me in app/views/cars/index.html.erb</p>
+<% @page_title = "Cars" %>
+
+<div class="Cars index">
+	<h2>Cars</h2>
+
+	<%= link_to("Add New Car", {:action => 'new'}, :class => 'action new') %>
+
+	<table class="listing" summary="Cars list">
+		<tr class="header">
+			<th>&nbsp;</th>
+			<th>Brand</th>
+			<th>Model</th>
+			<th>Action</th>
+		</tr>
+		<% @cars.each do |car| %>
+		<tr>
+			<td class="center"><%= car.Marca %></td>
+		<td class="center"><%= car.Modelo %></td>
+			<td class="actions">
+				<%= link_to("Parts", {:action => 'show', :id => car.id}, :class => 'action show') %>
+				<%= link_to("Edit", {:action => 'edit', :id => car.id}, :class => 'action edit') %>
+				<%= link_to("Delete", {:action => 'delete', :id => car.id}, :class => 'action delete') %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>

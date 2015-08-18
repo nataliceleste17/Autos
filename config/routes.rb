@@ -1,23 +1,25 @@
 Rails.application.routes.draw do
-  get 'parts/index'
+  #get 'parts/index'
 
-  get 'parts/delete'
+  #get 'parts/delete'
 
-  get 'parts/edit'
+  #get 'parts/edit'
 
-  get 'parts/new'
+  #get 'parts/new'
 
-  get 'parts/show'
+  #get 'parts/show'
 
-  get 'cars/index'
+  #get 'cars/index'
 
-  get 'cars/delete'
+  #get 'cars/delete'
 
-  get 'cars/edit'
+  #get 'cars/edit'
 
-  get 'cars/new'
+  #get 'cars/new'
 
-  get 'cars/show'
+  #get 'cars/show'
+  root "cars#index"
+  match ':controller(/:action(/:id))', :via => [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

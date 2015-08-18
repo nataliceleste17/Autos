@@ -1,2 +1,25 @@
-<h1>Cars#edit</h1>
-<p>Find me in app/views/cars/edit.html.erb</p>
+<%= link_to("<<Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="car edit">
+	<h2>Update Car</h2>
+
+	<%= form_for(:car, :url => {:action => 'update', :id => @car.id}) do |f| %>
+
+	<table summary="Car form fields">
+		<tr>
+			<th>Brand</th>
+			<td><%= f.text_field(:Marca) %></td>
+		</tr>
+		<th>Model</th>
+			<td><%= f.text_field(:Modelo) %></td>
+		</tr>
+		
+	</table>
+
+	<div class="form-buttons">
+		<%= submit_tag("Update Car") %>
+	</div>
+	
+	<% end %>
+
+</div>
