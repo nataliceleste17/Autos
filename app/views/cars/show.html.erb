@@ -3,12 +3,26 @@
 <div class="car show">
 	<h2>Show Car</h2>
 
-	<table summary="Car Parts detail view">
+	<table summary="Car detail view">
+		<tr>
+			<th>Marca</th>
+			<td><%= @car.Marca %></td>
+		</tr>
+		<tr>
+			<th>Modelo</th>
+			<td><%= @car.Modelo %></td>
+		</tr>
 		
-	
-<%= link_to("<< Add Part", {redirect_to(:controller => 'parts', :action => 'new')}, :c) %>
-
+			<th>Created</th>
+			<td><%= @car.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated</th>
+			<td><%= @car.updated_at %></td>
+		</tr>
+		<tr>
 		</tr>
 	</table>
+	<%= link_to "Show Parts", parts_path(car_id: @car) %>
 	
 </div>

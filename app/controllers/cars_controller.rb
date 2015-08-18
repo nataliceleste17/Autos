@@ -56,12 +56,7 @@ layout false
     flash[:notice] = "Car '#{car.Modelo}' destroyed successfully."
     redirect_to(:action => 'index')
   end
-  def part_params
-      # same as using "params[:subject]", except that it:
-      # - raises an error if :subject is not present
-      # - allows listed attributes to be mass-assigned
-      params.require(:part).permit(:Nombre, :Cantidad)
-    end
+  
 
  private 
 
