@@ -3,12 +3,11 @@ class CreateCars < ActiveRecord::Migration
     create_table :cars do |t|
     	t.string "Marca"
     	t.string "Modelo"
-    	t.integer "id_auto"
       t.timestamps null: false
     end
   end
   def down
-
+  	drop_table :cars
   end
 
 end
