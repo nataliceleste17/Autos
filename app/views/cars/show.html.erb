@@ -1,2 +1,14 @@
-<h1>Cars#show</h1>
-<p>Find me in app/views/cars/show.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="car show">
+	<h2>Show Car</h2>
+
+	<table summary="Car Parts detail view">
+		
+	
+<%= link_to("<< Add Part", {redirect_to(:controller => 'parts', :action => 'new')}, :c) %>
+
+		</tr>
+	</table>
+	
+</div>

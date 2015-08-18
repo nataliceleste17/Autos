@@ -1,2 +1,19 @@
-<h1>Cars#delete</h1>
-<p>Find me in app/views/cars/delete.html.erb</p>
+<%= link_to("<<Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="car delete">
+	<h2>Delete Car</h2>
+
+	<%= form_for(:car, :url => {:action => 'destroy', :id => @car.id}) do |f| %>
+
+		<p>Are you sure you want to permanently delete this car?</p>
+
+		<p class="reference-modelo"><%= @car.Modelo%></p>
+
+
+	<div class="form-buttons">
+		<%= submit_tag("Delete Car") %>
+	</div>
+	
+	<% end %>
+
+</div>
