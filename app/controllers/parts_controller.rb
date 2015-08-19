@@ -45,10 +45,10 @@ class PartsController < ApplicationController
     @part = Part.find(params[:id])
     if @part.update_attributes(part_params)
       flash[:notice] = "Part updated successfully."
-      redirect_to(action => 'index', car_id: @part.Car_id)
+      redirect_to(:action => 'index', car_id: @part.Car_id)
     else
       #If update fails, redisplay the form so user can fix problems
-      redirect_to(action => 'edit', car_id: @part.Car_id)
+      render edit
     end
   end 
   def destroy

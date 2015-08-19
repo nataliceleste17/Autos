@@ -1,2 +1,19 @@
-<h1>Parts#delete</h1>
-<p>Find me in app/views/parts/delete.html.erb</p>
+<%= link_to("<<Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="part delete">
+	<h2>Delete Part</h2>
+
+	<%= form_for(:part, :url => {:action => 'destroy', :id => @part.id}) do |f| %>
+
+		<p>Are you sure you want to permanently delete this part?</p>
+
+		<p class="reference-modelo"><%= @part.Nombre%></p>
+
+
+	<div class="form-buttons">
+		<%= submit_tag("Delete Part") %>
+	</div>
+	
+	<% end %>
+
+</div>
