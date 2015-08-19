@@ -1,6 +1,6 @@
 <%= link_to("<<Back to List", {:action => 'index'}, :class => 'back-link') %>
 
-<div class="car edit">
+<div class="Car edit">
 	<h2>Update Car</h2>
 
 	<%= form_for(:car, :url => {:action => 'update', :id => @car.id}) do |f| %>

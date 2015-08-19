@@ -3,7 +3,7 @@
 <div class="Cars index">
 	<h2>Cars</h2>
 
-	<%= link_to("Add New Car", {:action => 'new'}, :class => 'action new') %>
+	<%= link_to("Add New Car", new_car_path(), :class => 'action new') %>
 
 	<table class="listing" summary="Cars list">
 		<tr class="header">
@@ -17,9 +17,9 @@
 			<td class="center"><%= car.Marca %></td>
 		<td class="center"><%= car.Modelo %></td>
 			<td class="actions">
-				<%= link_to("Parts", {:action => 'show', :id => car.id}, :class => 'action show') %>
-				<%= link_to("Edit", {:action => 'edit', :id => car.id}, :class => 'action edit') %>
-				<%= link_to("Delete", {:action => 'delete', :id => car.id}, :class => 'action delete') %>
+				<%= link_to("Show", car_path(car), :class => 'action show') %>
+				<%= link_to("Edit", edit_car_path(car), :class => 'action edit') %>
+				<%= link_to 'Delete', car_path(car), :method => :delete, :class => "delete" %>
 			</td>
 		</tr>
 		<% end %>

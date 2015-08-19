@@ -1,2 +1,29 @@
-<h1>Parts#edit</h1>
-<p>Find me in app/views/parts/edit.html.erb</p>
+<%= link_to("Back List Part", :action => 'index', car_id: @part.Car_id) %>
+
+<div class="Part edit">
+	<h2>Update Part</h2>
+
+	<%= form_for(:part, :url => {:action => 'update', :id => @part.id}) do |f| %>
+
+	<table summary="Part form fields">
+		<tr>
+			<th>Name</th>
+			<td><%= f.text_field(:Nombre) %></td>
+		</tr>
+		<th>Stock</th>
+			<td><%= f.text_field(:Cantidad) %></td>
+		</tr>
+		<tr>
+			<th>Car_id</th>
+			<td><%= f.text_field(:Car_id) %></td>
+		</tr>
+		
+	</table>
+
+	<div class="form-buttons">
+		<%= submit_tag("Update Part") %>
+	</div>
+	
+	<% end %>
+
+</div>
