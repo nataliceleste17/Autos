@@ -3,9 +3,13 @@ class PartsController < ApplicationController
   layout false
   
   def index
-    
-    @parts =Part.all
-    $car = params[:car_id]
+   
+   @parts = if params[:car_id]
+             Part.where(Car_id: params[:car_id])
+          #  else
+           #    Part.all
+           end
+    @car_id = params[:car_id]
   end
 
   def delete
@@ -14,43 +18,37 @@ class PartsController < ApplicationController
 
   def edit
     @part = Part.find(params[:id])
+    @part = Part.new({:Car_id => @car_id})
   end
 
   def new
-    @auto_id = $car
-    @part = Part.new({:Car_id => @auto_id})
-
+    @car_id = params[:car_id]
+    @part = Part.new({:Car_id => @car_id})
   end
 
   def create
-    #Instantiate a new object using form parameters
     @part = Part.new(part_params)
-    #Save the object
     if @part.save
-      #If save succeeds, redirect to index action
       flash[:notice] = "Part created successfully."
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'index', car_id: @part.Car_id)
     else
-      #If save fails, redisplay the form so user can fix problems
       render('new')
     end
  end 
 
   def show
     @part = Part.find(params[:id])
+    @car_id = params[:car_id]
   end
 
   def update
-    # Find an existing object using form parameters
     @part = Part.find(params[:id])
-    # Update the object
     if @part.update_attributes(part_params)
-      #If update succeeds, redirect to index action
       flash[:notice] = "Part updated successfully."
-      redirect_to(:action => 'show', :id => @part.id)
+      redirect_to(action => 'index', car_id: @part.Car_id)
     else
       #If update fails, redisplay the form so user can fix problems
-      render('edit')
+      redirect_to(action => 'edit', car_id: @part.Car_id)
     end
   end 
   def destroy

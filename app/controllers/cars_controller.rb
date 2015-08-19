@@ -21,16 +21,12 @@ layout false
   end
 
   def create
-    #Instantiate a new object using form parameters
     @car = Car.new(car_params)
-    #Save the object
     if @car.save
-      #If save succeeds, redirect to index action
       flash[:notice] = "Car created successfully."
-      redirect_to(:action => 'index')
+      redirect_to car_path(@car)
     else
-      #If save fails, redisplay the form so user can fix problems
-      render('new')
+      render :new
     end
  end 
 
@@ -39,18 +35,18 @@ layout false
   end
 
   def update
-    # Find an existing object using form parameters
     @car = Car.find(params[:id])
-    # Update the object
+    brinding.pry
     if @car.update_attributes(car_params)
-      #If update succeeds, redirect to index action
       flash[:notice] = "Car updated successfully."
-      redirect_to(:action => 'show', :id => @car.id)
+      redirect_to car_path(@car)  
     else
-      #If update fails, redisplay the form so user can fix problems
-      render('edit')
+      render :edit
+
     end
   end 
+
+
   def destroy
     car = Car.find(params[:id]).destroy
     flash[:notice] = "Car '#{car.Modelo}' destroyed successfully."
@@ -61,9 +57,6 @@ layout false
  private 
 
     def car_params
-      # same as using "params[:subject]", except that it:
-      # - raises an error if :subject is not present
-      # - allows listed attributes to be mass-assigned
       params.require(:car).permit(:Marca, :Modelo)
     end
 

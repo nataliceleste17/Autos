@@ -3,8 +3,7 @@
 <div class="Parts index">
 	<h2>Parts</h2>
 
-	<%= link_to("Add New Part", {:action => 'new'}, :class => 'action new') %>
-
+	<%= link_to("Add New Part", new_part_path(car_id: @car_id), :class => 'action new') %>
 	<table class="listing" summary="Parts list">
 		<tr class="header">
 			<th>&nbsp;</th>
@@ -17,9 +16,9 @@
 			<td class="center"><%= part.Nombre %></td>
 		<td class="center"><%= part.Cantidad %></td>
 			<td class="actions">
-				<%= link_to("show", {:action => 'show', :id => part.id}, :class => 'action show') %>
-				<%= link_to("Edit", {:action => 'edit', :id => part.id}, :class => 'action edit') %>
-				<%= link_to("Delete", {:action => 'delete', :id => part.id}, :class => 'action delete') %>
+				<%= link_to("Show", part_path(part), :class => 'action show') %>
+				<%= link_to("Edit", edit_part_path(part), :class => 'action edit') %>
+				<%= link_to("Delete", part_path(part), :class => 'action delete') %>
 			</td>
 		</tr>
 		<% end %>
